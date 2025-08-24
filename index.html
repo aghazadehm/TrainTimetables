@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDD: The Whirlwind Tour - An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #FFD166;
+            align-self: center;
+            margin: 0 1rem;
+        }
+        .flow-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flow-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-[#073B4C] text-white">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#06D6A0]">BDD: The Whirlwind Tour</h1>
+            <p class="text-lg md:text-xl mt-4 text-gray-300">An Interactive Guide to Collaborative Software Development</p>
+        </header>
+
+        <main>
+            <!-- Section 1: The BDD Lifecycle -->
+            <section id="lifecycle" class="my-16">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#FFD166]">The 6 Stages of the BDD Lifecycle</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-12">BDD is a collaborative cycle where teams move from high-level business goals to implemented features through conversation and concrete examples. This flow ensures everyone shares the same understanding.</p>
+                <div class="flex flex-wrap justify-center items-stretch gap-8">
+                    <!-- Speculate -->
+                    <div class="flow-card bg-[#118AB2] p-6 rounded-lg shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col">
+                        <h3 class="font-bold text-xl mb-2 text-[#FFD166]">1. Speculate</h3>
+                        <p class="text-gray-200 flex-grow">The team and business stakeholders discuss high-level goals. They ask "Why are we doing this?" and speculate on features that might deliver business value.</p>
+                        <p class="mt-4 font-semibold text-sm text-[#06D6A0]">Output: Product Backlog, Goals</p>
+                    </div>
+                    <!-- Illustrate -->
+                    <div class="flow-card bg-[#118AB2] p-6 rounded-lg shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col">
+                        <h3 class="font-bold text-xl mb-2 text-[#FFD166]">2. Illustrate</h3>
+                        <p class="text-gray-200 flex-grow">Using concrete examples and conversations, the team builds a deeper understanding of a feature. Techniques like Example Mapping help clarify business rules.</p>
+                        <p class="mt-4 font-semibold text-sm text-[#06D6A0]">Output: User Stories with Acceptance Criteria</p>
+                    </div>
+                    <!-- Formulate -->
+                    <div class="flow-card bg-[#118AB2] p-6 rounded-lg shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col">
+                        <h3 class="font-bold text-xl mb-2 text-[#FFD166]">3. Formulate</h3>
+                        <p class="text-gray-200 flex-grow">Key examples are transformed into a structured, business-readable format like Gherkin's `Given/When/Then`. These become executable specifications.</p>
+                        <p class="mt-4 font-semibold text-sm text-[#06D6A0]">Output: Executable Specifications</p>
+                    </div>
+                    <!-- Automate -->
+                    <div class="flow-card bg-[#118AB2] p-6 rounded-lg shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col">
+                        <h3 class="font-bold text-xl mb-2 text-[#FFD166]">4. Automate</h3>
+                        <p class="text-gray-200 flex-grow">Developers and testers turn the executable specifications into automated acceptance tests. These tests initially fail and drive the development process.</p>
+                        <p class="mt-4 font-semibold text-sm text-[#06D6A0]">Output: Automated Tests</p>
+                    </div>
+                    <!-- Demonstrate -->
+                    <div class="flow-card bg-[#118AB2] p-6 rounded-lg shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col">
+                        <h3 class="font-bold text-xl mb-2 text-[#FFD166]">5. Demonstrate</h3>
+                        <p class="text-gray-200 flex-grow">Passing tests act as evidence that a feature is correctly implemented. They become "living documentation" that illustrates how the system works.</p>
+                        <p class="mt-4 font-semibold text-sm text-[#06D6A0]">Output: Passing Tests & Documentation</p>
+                    </div>
+                    <!-- Validate -->
+                    <div class="flow-card bg-[#118AB2] p-6 rounded-lg shadow-lg w-full md:w-1/3 lg:w-1/4 flex flex-col">
+                        <h3 class="font-bold text-xl mb-2 text-[#FFD166]">6. Validate</h3>
+                        <p class="text-gray-200 flex-grow">The team and business validate if the feature delivers the promised business value in the real world, providing feedback for the next cycle.</p>
+                        <p class="mt-4 font-semibold text-sm text-[#06D6A0]">Output: Shippable Product Increment</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: From Conversation to Code -->
+            <section id="conversation-to-code" class="my-16">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#FFD166]">From Conversation to Code</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-12">BDD provides a clear path from a high-level business idea down to the implementation details, ensuring every piece of code is tied to business value.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    
+                    <div class="bg-[#118AB2] p-6 rounded-lg shadow-lg">
+                        <h3 class="font-bold text-xl mb-4 text-[#FFD166]">The Two Loops of Development</h3>
+                        <p class="text-gray-200 mb-6">BDD operates on two interconnected cycles. The outer "BDD loop" is driven by business-facing scenarios (acceptance tests). To make one scenario pass, developers enter the inner "TDD loop," writing many small unit tests to build the required functionality piece by piece.</p>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="tddVsBddChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#118AB2] p-6 rounded-lg shadow-lg">
+                        <h3 class="font-bold text-xl mb-4 text-[#FFD166]">BDD as Living Documentation</h3>
+                        <p class="text-gray-200 mb-6">Because tests are written in a business-readable language and are always in sync with the code, the test reports become "living documentation." This provides a reliable, up-to-date view of the system's capabilities and progress.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-lg text-center mb-2 text-[#06D6A0]">Overall Test Status</h4>
+                                <div class="chart-container h-56">
+                                    <canvas id="testStatusChart"></canvas>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-center mb-2 text-[#06D6A0]">Functional Coverage</h4>
+                                <div class="chart-container h-56">
+                                    <canvas id="featureCoverageChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: The Three Amigos -->
+            <section id="amigos" class="my-16 text-center">
+                <h2 class="text-3xl font-bold text-center mb-2 text-[#FFD166]">Collaboration is Key: The Three Amigos</h2>
+                <p class="text-center text-gray-400 max-w-3xl mx-auto mb-12">BDD thrives on the collaboration between three key perspectives, often called the "Three Amigos," who work together to define and refine requirements.</p>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="bg-[#118AB2] p-8 rounded-full shadow-lg flex flex-col items-center justify-center w-48 h-48">
+                        <span class="text-5xl mb-2">💼</span>
+                        <h3 class="font-bold text-xl">Business</h3>
+                        <p class="text-sm text-gray-300">(The "Why")</p>
+                    </div>
+                    <div class="bg-[#118AB2] p-8 rounded-full shadow-lg flex flex-col items-center justify-center w-48 h-48">
+                        <span class="text-5xl mb-2">💻</span>
+                        <h3 class="font-bold text-xl">Developer</h3>
+                        <p class="text-sm text-gray-300">(The "How")</p>
+                    </div>
+                    <div class="bg-[#118AB2] p-8 rounded-full shadow-lg flex flex-col items-center justify-center w-48 h-48">
+                        <span class="text-5xl mb-2">🧪</span>
+                        <h3 class="font-bold text-xl">Tester</h3>
+                        <p class="text-sm text-gray-300">(The "What If")</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const tooltipPlugin = {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            };
+
+            const processLabels = (labels) => {
+                return labels.map(label => {
+                    if (typeof label === 'string' && label.length > 16) {
+                        const words = label.split(' ');
+                        const lines = [];
+                        let currentLine = '';
+                        words.forEach(word => {
+                            if ((currentLine + word).length > 16) {
+                                lines.push(currentLine.trim());
+                                currentLine = '';
+                            }
+                            currentLine += word + ' ';
+                        });
+                        lines.push(currentLine.trim());
+                        return lines;
+                    }
+                    return label;
+                });
+            };
+
+            // Chart 1: TDD vs BDD Chart
+            const tddVsBddCtx = document.getElementById('tddVsBddChart').getContext('2d');
+            new Chart(tddVsBddCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Effort to Pass One Scenario'],
+                    datasets: [{
+                        label: 'Unit Tests (TDD Loop)',
+                        data: [12],
+                        backgroundColor: '#FF6B6B',
+                        borderColor: '#FF6B6B',
+                        borderWidth: 1
+                    }, {
+                        label: 'Acceptance Test (BDD Loop)',
+                        data: [1],
+                        backgroundColor: '#06D6A0',
+                        borderColor: '#06D6A0',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: tooltipPlugin,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#FFFFFF' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: '#FFFFFF' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        }
+                    }
+                }
+            });
+
+            // Chart 2: Test Status Chart
+            const testStatusCtx = document.getElementById('testStatusChart').getContext('2d');
+            new Chart(testStatusCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Passing', 'Pending'],
+                    datasets: [{
+                        data: [2, 4], // Data from Figure 3.12
+                        backgroundColor: ['#06D6A0', '#FFD166'],
+                        borderColor: '#118AB2',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                        ...tooltipPlugin,
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#FFFFFF'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Chart 3: Feature Coverage Chart
+            const featureCoverageCtx = document.getElementById('featureCoverageChart').getContext('2d');
+            const originalLabels = ['Show next departing trains', 'Show alternate routes', 'Favorite trips'];
+            new Chart(featureCoverageCtx, {
+                type: 'bar',
+                data: {
+                    labels: processLabels(originalLabels),
+                    datasets: [{
+                        label: '% Complete',
+                        data: [100, 0, 0], // Data from Figure 3.12
+                        backgroundColor: ['#06D6A0', '#FF6B6B', '#FF6B6B'],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    maintainAspectRatio: false,
+                    responsive: true,
+                    plugins: {
+                        ...tooltipPlugin,
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: { color: '#FFFFFF' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        },
+                        y: {
+                            ticks: { color: '#FFFFFF' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
