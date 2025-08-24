@@ -6,7 +6,7 @@ This project is an interactive infographic visualizing the concepts from Chapter
 
 You can view the live, interactive infographic here:
 
-**[View the BDD Infographic](https://aghazadehm.github.com/TrainTimetables/)**
+**[View the BDD Infographic](https://github.com/aghazadehm/TrainTimetables/)**
 
 ## How to Run Locally
 
